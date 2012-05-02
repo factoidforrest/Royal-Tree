@@ -4,8 +4,9 @@
  */
 package royal.tree;
 
-import java.io.File;
-import java.util.Scanner;
+import java.io.*;
+
+
 
 /**
  *
@@ -13,14 +14,16 @@ import java.util.Scanner;
  */
 public class FileIO {
 
-    public static RoyalTree.Node read(String path) throws Exception {
+    public static RoyalTree.Node read(String path) throws IOException {
+        System.out.println("FileIO is looking for:" + path);
 
 
         File inputFile = new File(path);
-        Scanner in = new Scanner(inputFile);
-        while (in.hasNextLine()) {
+         BufferedReader input =  new BufferedReader(new FileReader(inputFile));
+         String line = null;
+        while ((line = input.readLine()) != null) {
             boolean root = false;
-            String line = in.nextLine();
+            
 
             String[] lineArray = line.split("\\s+");
             if (lineArray.length < 3) {//line is root node
@@ -30,6 +33,7 @@ public class FileIO {
                 RoyalTree.add(lineArray[0], lineArray[1], Integer.parseInt(lineArray[2]), root);
             }
         }
+        
 
 
 

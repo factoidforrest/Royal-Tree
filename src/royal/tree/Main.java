@@ -23,11 +23,11 @@ public class Main {
     public static RoyalTree.Node fileReader() {
         System.out.println("Enter the file name or path");
         Scanner in = new Scanner(System.in);
-        String path = in.nextLine().trim();
+        String path = in.nextLine();
         RoyalTree.Node tree = null;
         try {
             tree = FileIO.read(path);
-        } catch (Exception FileNotFoundException) {
+        } catch (Exception IOException) {
             System.out.println("Cannot find file.  Try again");
             fileReader();
         }
