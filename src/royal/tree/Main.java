@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         RoyalTree.Node tree = fileReader();
-        System.out.println("The queen is: " + RoyalTree.root.element);
+        System.out.println("indicias next younger sister is " +RoyalTree.nodeList.get("Indicia").sibling.element);
     }
 
     public static RoyalTree.Node fileReader() {
@@ -25,12 +25,9 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String path = in.nextLine();
         RoyalTree.Node tree = null;
-        try {
-            tree = FileIO.read(path);
-        } catch (Exception IOException) {
-            System.out.println("Cannot find file.  Try again");
-            fileReader();
-        }
+        
+        FileIO.read(path);
+        
         return tree;
     }
 }

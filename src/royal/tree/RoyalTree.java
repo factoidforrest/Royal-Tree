@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class RoyalTree {
 
-    static HashMap<String, Node> nodeList = new HashMap<>();
+    static HashMap<String, Node> nodeList = new HashMap<>();//holds the users
     static Node root = null;
 
     public static void add(String elementin, String parentin, int birthdayin, boolean isRoot) {
@@ -24,23 +24,29 @@ public class RoyalTree {
         }
 
         if (!isRoot) {
+            Node parent = null;
+            if (nodeList.containsKey(parentin)) {
+                parent = nodeList.get(parentin);//fetches parent from hashmap
+            } else {
+                System.out.println("Cannot find parent");
+                System.exit(0);
+            }
 
-            Node parent = nodeList.get(parentin);//fetches parent from hashmap
 
             if (parent.child == null) {//parent has no children
                 parent.child = added;
             } else {//parent has children
-                Node older = null;//keeps track of the node that is older but least older than added
+
                 Node last = null;
                 ageLoop:
                 for (Node x = parent.child; true; x = x.sibling) {
 
-                    if (x.birthday < added.birthday) {//encounters a node with a lower birthday
+                    if (x.birthday > added.birthday) {//encounters a node with a more recent(larger) birthday
                         if (x == parent.child) {//added is the highest node
                             added.sibling = parent.child;
                             parent.child = added;
                             break ageLoop;
-                        } else {//added is in the middle somewhere. siblings were found with both lower and higher birthdays
+                        } else {//added is going in the middle somewhere. siblings were found with both lower and higher birthdays
                             last.sibling = added;
                             added.sibling = x;
                             break ageLoop;
@@ -57,7 +63,26 @@ public class RoyalTree {
 
 
         }
+        System.out.println("Created node containing: " + elementin);
+    }
 
+    public static void breadthFirst() {
+        Queue<Node> que = new LinkedList<Node>();
+        que.add(root);
+        while (!que.isEmpty()) {
+            Node popped = que.remove();
+            System.out.println(popped.element);
+            if (popped.child != null) {//if the popped node has children
+                childLoop:
+                for (Node x = popped.child; true; x = x.sibling) {//loop through them
+                    que.add(x);
+                    if (x.sibling == null) {
+                        break childLoop;
+                    }
+                }
+
+            }
+        }
     }
 
     /**
