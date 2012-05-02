@@ -27,7 +27,8 @@ public class Main {
         RoyalTree.Node tree = null;
         try {
             tree = FileIO.read(path);
-        } catch (Exception e) {
+        } catch (Exception FileNotFoundException) {
+            System.out.println("Cannot find file.  Try again");
             fileReader();
         }
         return tree;
