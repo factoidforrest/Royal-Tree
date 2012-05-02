@@ -34,6 +34,9 @@ public class RoyalTree {
                 Node younger;
                 Node visiting = parent.child;
                 search:while(true){//loops through the children of a node and finds where to insert node based on birthdate
+                    for(Node x=parent.child;x.sibling!=null;x = x.sibling){
+                        
+                    }
                     if(visiting.birthday>added.birthday){
                         older = visiting;
                     }
