@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         RoyalTree.Node tree = fileReader();
-        System.out.println("indicias next younger sister is " +RoyalTree.nodeList.get("Indicia").sibling.element);
+        RoyalTree.breadthFirst();
     }
 
     public static RoyalTree.Node fileReader() {
