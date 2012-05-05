@@ -105,7 +105,7 @@ public class RoyalTree {
     public RoyalTree() {
         root = null;
     }
-
+  
     public void empty() {
         root = null;
     }
