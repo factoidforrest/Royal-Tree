@@ -66,16 +66,23 @@ public class RoyalTree {
         System.out.println("Created node containing: " + elementin);
     }
 
+    public static void inOrder(Node nd){//doesnt work yet
+        if(nd.child==null){
+            
+        }
+    }
     public static void breadthFirst() {
-        Queue<Node> que = new LinkedList<Node>();
-        que.add(root);
+        //Queue<Node> que = new LinkedList<Node>();
+        //que.add(root);
+        Que que = new Que();
+        que.push(root);
         while (!que.isEmpty()) {
-            Node popped = que.remove();
+            Node popped = que.pop();
             System.out.println(popped.element);
             if (popped.child != null) {//if the popped node has children
                 childLoop:
                 for (Node x = popped.child; true; x = x.sibling) {//loop through them
-                    que.add(x);
+                    que.push(x);
                     if (x.sibling == null) {
                         break childLoop;
                     }
