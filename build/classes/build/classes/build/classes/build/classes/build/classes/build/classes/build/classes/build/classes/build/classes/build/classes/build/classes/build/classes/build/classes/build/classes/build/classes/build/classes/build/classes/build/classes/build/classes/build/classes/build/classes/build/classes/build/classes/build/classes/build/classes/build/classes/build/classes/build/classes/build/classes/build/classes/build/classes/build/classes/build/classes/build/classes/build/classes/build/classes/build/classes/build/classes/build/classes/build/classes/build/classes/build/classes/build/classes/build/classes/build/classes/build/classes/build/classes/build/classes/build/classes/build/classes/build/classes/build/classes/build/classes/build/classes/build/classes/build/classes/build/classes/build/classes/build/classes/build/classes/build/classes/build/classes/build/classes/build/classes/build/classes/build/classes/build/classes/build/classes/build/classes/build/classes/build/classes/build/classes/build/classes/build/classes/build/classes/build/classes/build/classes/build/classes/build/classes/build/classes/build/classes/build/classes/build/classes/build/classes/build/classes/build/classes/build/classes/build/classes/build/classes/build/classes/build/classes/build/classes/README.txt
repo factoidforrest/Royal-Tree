@@ -1,0 +1,1 @@
+This application generates a tree of single links.  Each node has two pointers to other nodes, and contains the name and date of the node.  Child nodes are linked from the parent in order of birthdate.  The tree is light on traversal methods, printing only a breadth first traversal.

@@ -10,7 +10,7 @@ import royal.tree.RoyalTree;
  *
  * @author Forrest
  */
-public class Que extends RoyalTree {
+public class Que {
 
     Link pushed;//these are the tails of the que.  Pushed was just pushed, popped is about to be popped.
     Link popped;
@@ -20,17 +20,17 @@ public class Que extends RoyalTree {
         popped = null;
     }
 
-    public void push(Node insert) {
+    public void push(RoyalTree.Node insert) {
         
         Link newLink = new Link(insert);
-        System.out.println("Created a link containing: "+ newLink.content.element);
+        //System.out.println("Created a link containing: "+ newLink.content.element);
         if (pushed == null) {//empty que
             newLink.next = null;
             pushed = newLink;
             popped = newLink;
         } else {//nonempty que
             pushed.next=newLink;
-            newLink.next =null;
+            
             pushed = newLink;
         }
     }
@@ -55,10 +55,10 @@ public class Que extends RoyalTree {
 
     public class Link {//objects to fill the list
 
-        public RoyalTree.Node content;
-        public Link next;
+        public RoyalTree.Node content = null;
+        public Link next = null;
 
-        public Link(Node contentin) {
+        public Link(RoyalTree.Node contentin) {
             content = contentin;
         }
         

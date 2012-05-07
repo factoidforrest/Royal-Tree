@@ -1,0 +1,13 @@
+Amarantha                       1792
+Amarantha       Depilitoria     1815
+Depilitoria     Hildegarde      1831
+Amarantha       Callipygia      1812
+Hildegarde      Ludmilla        1856
+Callipygia      Ganache         1831
+Amarantha       Bethesda        1810
+Hildegarde      Miasma          1859
+Callipygia      Flegma          1828
+Flegma          Kalahari        1860
+Bethesda        Edna            1830
+Flegma          Indicia         1848
+Flegma          Jaundice        1850
